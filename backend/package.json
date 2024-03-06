@@ -5,6 +5,7 @@
   "main": "./src/server/index.js",
   "scripts": {
     "check": "npm run lint",
+    "build": "echo building...",
     "test": "mocha",
     "lint": "eslint **/*.js --ignore-pattern node_modules/",
     "prettier": "npx prettier --write ."
