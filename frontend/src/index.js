@@ -11,6 +11,10 @@ import './index.css'
 
 //uncomment soon
 new p5(mySketch, document.getElementById('sketch'))
+document.getElementById('sketch').addEventListener('click', () => {
+  document.getElementById('sketch').requestFullscreen()
+})
+console.log("hello")
 
 // // Example: update the DOM
 // setTimeout(() => {
