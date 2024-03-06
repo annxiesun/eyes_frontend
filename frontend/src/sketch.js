@@ -90,13 +90,17 @@ export const mySketch = (p) => {
   };
 
   p.draw = () => {
-    p.background("#0000aa");
+    // p.background("#0000aa");
     // draw the vdieo
-    p.image(p.eyeVideoImages[p.currVideoTime],0,0, p.width, p.height)
+    if(p.predictions.length > 1) return;
 
+    p.image(p.eyeVideoImages[p.currVideoTime],0,0, p.width, p.height)
+  
     p.predictions.forEach((prediction) => {
       let a = prediction.pose["nose"];
-      const x = a.x;
+
+      const x = p.width - a.x;
+      p.currVideoTime = p.getCorrespondingFrame(x)
       const y = a.y;
       p.noStroke();
       p.fill('red');
@@ -111,16 +115,12 @@ export const mySketch = (p) => {
   p.mousePressed = () => {
   }
 
-  p.mouseMoved = () => {
-    // const diff = p.prevMouseX - p.mouseX
-    // p.currVideoTime = Math.floor(p.mouseX/p.width * FRAME_NUM)
-    // p.currVideoTime = Math.min(p.currVideoTime, FRAME_NUM - 1)
-    // p.currVideoTime = Math.max(p.currVideoTime, 0)
+  p.getCorrespondingFrame = (x) => {
+    let newVideoTime = Math.floor(x/p.width * FRAME_NUM)
+    newVideoTime = Math.min(newVideoTime, FRAME_NUM - 1)
+    newVideoTime = Math.max(newVideoTime, 0)
 
-    // p.draw()
-    // p.prevMouseX = p.mouseX
-    // // console.log(diff)
-    // p.lock = false;
+    return newVideoTime;
   };
 
   p.windowResized = () => {};
