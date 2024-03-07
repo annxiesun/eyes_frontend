@@ -20,41 +20,46 @@ io.on('connection', (socket) => {
     io.sockets.emit('root/update_socket_count', { clientCount });
   });
 
-  socket.on('/root/cheat', () => {
-    eventHandlers.addCheat().then(() => {
+  socket.on('/root/cheat', (data) => {
+    const { id } = data;
+
+    eventHandlers.addCheat(id).then(() => {
       eventHandlers.getClientAction().then((res) => {
-        switch (res) {
+        switch (res.clientAction) {
         case NOT_ENOUGH:
           console.log('Not enough actions');
           return;
         case ONE_CHEAT:
-          io.sockets.emit('/root/cheated');
+          console.log('ONE CHEAT')
+          io.sockets.emit('/root/cheated', res);
           break;
         case BOTH_CHEAT:
-          io.sockets.emit('/root/cheated');
+          io.sockets.emit('/root/both_cheated', res);
           break;
         case BOTH_GOOD:
-          io.sockets.emit('/root/done_good');
+          io.sockets.emit('/root/done_good', res);
         }
       });
     });
   });
 
-  socket.on('/root/good', () => {
-    eventHandlers.addGood().then(() => {
+  socket.on('/root/good', (data) => {
+    const { id } = data;
+  
+    eventHandlers.addGood(id).then(() => {
       eventHandlers.getClientAction().then((res) => {
-        switch (res) {
+        switch (res.clientAction) {
         case NOT_ENOUGH:
           console.log('Not enough actions');
           return;
         case ONE_CHEAT:
-          io.sockets.emit('/root/cheated');
+          io.sockets.emit('/root/cheated', res);
           break;
         case BOTH_CHEAT:
-          io.sockets.emit('/root/cheated');
+          io.sockets.emit('/root/both_cheated', res);
           break;
         case BOTH_GOOD:
-          io.sockets.emit('/root/done_good');
+          io.sockets.emit('/root/done_good', res);
         }
       });
     });

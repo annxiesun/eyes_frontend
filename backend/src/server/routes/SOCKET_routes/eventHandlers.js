@@ -22,14 +22,26 @@ exports.getClientAction = () => {
     const popped = actionQueue.popTwo();
     return popped.then((res) => {
       const [a1, a2] = res;
-      if (!a1) return NOT_ENOUGH;
+      if (!a1) return {
+        clientAction: NOT_ENOUGH
+      };
     
-      if (a1 == GOOD && a2 == GOOD) {
-        return  BOTH_GOOD;
-      } else if (a1 == CHEAT && a2 == CHEAT) {
-        return BOTH_CHEAT;
+      if (a1.action == GOOD && a2.action == GOOD) {
+        return {
+          people: [a1.id, a2.id],
+          clientAction: BOTH_GOOD
+        };
+      } else if (a1.action == CHEAT && a2.action == CHEAT) {
+        return {
+          people: [a1.id, a2.id],
+          clientAction: BOTH_CHEAT
+        };
       }
-      return ONE_CHEAT;
+      return {
+        cheater: a1.action == CHEAT ? a1.id : a2.id,
+        people: [a1.id, a2.id],
+        clientAction: ONE_CHEAT
+      };
     });
     // if (!a1) return NOT_ENOUGH;
   
@@ -45,12 +57,18 @@ exports.getClientAction = () => {
   }
 };
 
-exports.addCheat = () => {
-  return actionQueue.addAction(CHEAT);
+exports.addCheat = (id) => {
+  return actionQueue.addAction({
+    id,
+    action: CHEAT
+  });
 };
 
-exports.addGood = () => {
-  return actionQueue.addAction(GOOD);
+exports.addGood = (id) => {
+  return actionQueue.addAction({
+    id,
+    action: GOOD
+  });
 };
 
 exports.onClientDisconnect = (id) => {

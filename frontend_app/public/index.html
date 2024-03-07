@@ -12,17 +12,15 @@
   <div class="canvas"><div id="sketch"></div></div>
 
   <section id="home-section">
-    <div id="side-panel">
-      <div class="text-wrapper">
-        <h4>You are now connected to the socket.</h4>
-        <p>Connected sockets: <span id="socket-count"></span></p>
-        <p>Your socket id is: <span id="socket-id"></span></p>
+    <div class="appContainer">
+      <p id="personId">Person #123</p>
+      <img id="penny" src="penny.png" />
+      <p id="amount">12</p>
+      <div class="btnContainer">
+        <button class="button" id="cheatBtn">CHEAT</button>
+        <button class="button" id="goodBtn">COOPERATE</button>
       </div>
-    </div>
-    <div class="chat">
-     <button id="cheatBtn">cheat</button>
-     <button id="goodBtn">good</button>
-    </div>
+  </div>
   </section>
 
   <script src="https://cdn.socket.io/socket.io-3.0.1.min.js"></script>
