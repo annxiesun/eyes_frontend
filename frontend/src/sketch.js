@@ -24,13 +24,19 @@ export const mySketch = (p) => {
 
   p.currVideoTime = 0;
 
+  p.colorFilter = null;
+
+  p.setFilter = (f) => {
+    p.colorFilter = f
+  }
+
   p.preload = () => {
     for (i = 1; i <= FRAME_NUM; i++) {
       let fn = 'eye_video/' + "ezgif-frame-" + String(i).padStart(3, '0') + ".jpg"
       p.eyeVideoImages.push(p.loadImage(fn))
     }
   };
-
+  
   p.setup = () => {
     p.createCanvas(window.innerWidth, window.innerHeight);
     p.noLoop();
@@ -96,6 +102,10 @@ export const mySketch = (p) => {
 
     p.image(p.eyeVideoImages[p.currVideoTime],0,0, p.width, p.height)
   
+    if(p.colorFilter != null) {
+      p.filter(p.colorFilter)
+    }
+    
     p.predictions.forEach((prediction) => {
       let a = prediction.pose["nose"];
 

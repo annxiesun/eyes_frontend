@@ -24,6 +24,11 @@ bootstrap()
           methods: ["GET", "POST"],
           credentials: true
         },
+        {
+          origin: "https://lustrous-marzipan-234959.netlify.app/",
+          methods: ["GET", "POST"],
+          credentials: true
+        }
       ]
       });
       console.log(`Server listening at http://${hostname}:${server.address().port}`);

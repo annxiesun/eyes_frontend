@@ -1,3 +1,4 @@
+import { myP5Sketch } from ".";
 
 const socketCount = document.querySelector('#socket-count');
 const clientId = document.querySelector('#socket-id');
@@ -32,6 +33,7 @@ function onCheated() {
 
 function onGood() {
   console.log("Both did good")
+  myP5Sketch.setFilter(myP5Sketch.GRAY);
 }
 
 /***********************************/
@@ -46,24 +48,3 @@ function updateSocketCount (data) {
   socketCount.innerHTML = clientCount;
 }
 
-// Sends a chat message to the server
-function sendCheat (e) {
-  e.preventDefault();
-  console.log("I cheated")
-  socket.emit('/root/cheat');
-}
-
-function sendGood (e) {
-  e.preventDefault();
-  console.log("I did good")
-  socket.emit('/root/good');
-}
-
-
-function randomColor () {
-  return Math.floor(Math.random()*255);
-}
-
-// Reactive elements > Event listeners
-cheatBtn.addEventListener('click', sendCheat);
-goodBtn.addEventListener('click', sendGood);

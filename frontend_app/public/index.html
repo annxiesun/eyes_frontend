@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>p5js-es6-boilerplate</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="css.css">
+</head>
+
+<body>
+  <div class="canvas"><div id="sketch"></div></div>
+
+  <section id="home-section">
+    <div id="side-panel">
+      <div class="text-wrapper">
+        <h4>You are now connected to the socket.</h4>
+        <p>Connected sockets: <span id="socket-count"></span></p>
+        <p>Your socket id is: <span id="socket-id"></span></p>
+      </div>
+    </div>
+    <div class="chat">
+     <button id="cheatBtn">cheat</button>
+     <button id="goodBtn">good</button>
+    </div>
+  </section>
+
+  <script src="https://cdn.socket.io/socket.io-3.0.1.min.js"></script>
+  <script src="index.js"></script>
+</body>
+
+</html>
