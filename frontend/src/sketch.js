@@ -137,9 +137,9 @@ export const mySketch = (p) => {
       const x = p.width - a.x;
       p.currVideoTime = p.getCorrespondingFrame(x);
       const y = a.y;
-      p.noStroke();
-      p.fill("red");
-      p.ellipse(x, y, 12);
+      // p.noStroke();
+      // p.fill("red");
+      // p.ellipse(x, y, 12);
     });
 
     // debug info
