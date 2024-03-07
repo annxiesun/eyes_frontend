@@ -24,7 +24,7 @@ amountLabel.innerHTML = moneyAmount;
 const cheatBtn = document.querySelector("#cheatBtn");
 const goodBtn = document.querySelector("#goodBtn");
 
-const disabledDuration = 1000;
+const disabledDuration = 20000;
 
 if (window.localStorage.getItem("buttonsDisabled") == "true") {
   cheatBtn.disabled = true;
