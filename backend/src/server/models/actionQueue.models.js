@@ -9,8 +9,12 @@ const actionQueue = () => {
   // cheatOrGood = "CHEAT" or "GOOD" consts
   const addAction = (cheatOrGood) => {
     return new Promise(function (res) {
-      while (locked) 
+      let count = 0;
+      while (locked) {
+        count += 1;
+        if (count > 1000) break;
         continue;
+      }
     
       locked = true;
       console.log('locked', actions);
@@ -25,7 +29,13 @@ const actionQueue = () => {
 
   const popTwo = () => {
     return new Promise(function (res) {
-      while (locked) continue;
+      let count = 0;
+      while (locked) {
+        count += 1;
+        if (count > 1000) break;
+        continue;
+      }
+    
       locked = true;
 
       if (actions.length < 2) {

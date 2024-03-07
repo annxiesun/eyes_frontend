@@ -17,7 +17,7 @@ const setAllowNextToFalse = () => {
       clearTimeout(timeout);
       setAllowNextToFalse();
     }
-  }, 5000)
+  }, 10000)
 }
 
 const tryToApplyTint = (t) => {

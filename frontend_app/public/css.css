@@ -33,14 +33,21 @@ body {
   color:white;
   font-size: 40px;
   font-family: 'Times New Roman', Times, serif;
+  border-bottom: 0px;
 }
 
 .button:active {
-  text-decoration: underline;
+  border-bottom: 1px;
+  border-color: white;
 }
 
 .button:focus {
-  text-decoration: underline;
+  border-bottom: 1px;
+  border-color: white;
+}
+
+.button:disabled {
+  opacity: 0.5;
 }
 
 .btnContainer {
