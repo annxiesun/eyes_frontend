@@ -19,11 +19,12 @@ async function bootstrap () {
 bootstrap()
     .then(server => {
       io.attach(server, {
-        cors: {
+        cors: [{
           origin: "http://localhost:3000",
           methods: ["GET", "POST"],
           credentials: true
-        }
+        },
+      ]
       });
       console.log(`Server listening at http://${hostname}:${server.address().port}`);
     })

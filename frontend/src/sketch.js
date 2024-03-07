@@ -123,7 +123,9 @@ export const mySketch = (p) => {
     return newVideoTime;
   };
 
-  p.windowResized = () => {};
+  p.windowResized = () => {
+    p.width = window.innerWidth
+  };
 
   p.fps = 0;
 
