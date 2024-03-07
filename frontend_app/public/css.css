@@ -39,6 +39,10 @@ body {
   text-decoration: underline;
 }
 
+.button:focus {
+  text-decoration: underline;
+}
+
 .btnContainer {
   gap: 12px;
   display: flex;
