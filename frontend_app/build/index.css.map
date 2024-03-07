@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["../src/index.css"],
-  "sourcesContent": ["html,\nbody {\n  font-family: \"Helvetica\";\n  margin: 0;\n  padding: 0;\n  width: 100%;\n  height: 100%;\n  overflow: hidden;\n}\n\ninput {\n  z-index: 1;\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  margin: 0;\n  background: none;\n  outline: none;\n  border: none;\n  color: white;\n  font-size: 48px;\n  font-weight: bolder;\n  text-align: center;\n  transform: translateX(-50%) translateY(-50%);\n  mix-blend-mode: difference;\n}\n"],
-  "mappings": "AAAA,KACA,KACE,YAAa,UAFf,OAGU,EAHV,QAIW,EACT,MAAO,KACP,OAAQ,KACR,SAAU,MACZ,CAEA,MACE,QAAS,EACT,SAAU,SACV,IAAK,IACL,KAAM,IAdR,OAeU,EACR,WAAY,KACZ,QAAS,KACT,OAAQ,KACR,MAAO,KACP,UAAW,KACX,YAAa,OACb,WAAY,OACZ,UAAW,UAAW,MAAM,WAAW,MACvC,eAAgB,UAClB",
-  "names": []
-}
