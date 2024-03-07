@@ -30,7 +30,6 @@ io.on('connection', (socket) => {
           console.log('Not enough actions');
           return;
         case ONE_CHEAT:
-          console.log('ONE CHEAT')
           io.sockets.emit('/root/cheated', res);
           break;
         case BOTH_CHEAT:
