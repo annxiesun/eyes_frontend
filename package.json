@@ -1,6 +1,0 @@
-{
-  "scripts": {
-    "buildF": "cd frontend && npm run build",
-    "buildFA": "cd frontend && npm run build"
-  }
-}
