@@ -1,9 +1,12 @@
 const localStorageAmountIfExist = parseInt(
   window.localStorage.getItem("moneyAmount")
 );
+
+let negative = Math.floor(Math.random() * 2) == 0 ? -1 : 1;
+
 let moneyAmount = localStorageAmountIfExist
   ? localStorageAmountIfExist
-  : Math.floor(Math.random() * 50 - 50);
+  : negative * Math.floor(Math.random() * 20);
 
 const localStorageIdIfExist = window.localStorage.getItem("fakePersonId");
 const fakePersonId = localStorageIdIfExist
@@ -32,11 +35,14 @@ if (window.localStorage.getItem("buttonsDisabled") == "true") {
   lockButtons();
 }
 
-const socket = io("https://da35-2620-101-f000-700-0-6e15-dee0-a4c5.ngrok-free.app", {
-  extraHeaders: {
-    "ngrok-skip-browser-warning": true,
-  },
-});
+const socket = io(
+  "https://da35-2620-101-f000-700-0-6e15-dee0-a4c5.ngrok-free.app",
+  {
+    extraHeaders: {
+      "ngrok-skip-browser-warning": true,
+    },
+  }
+);
 
 socket.emit("/root/new_socket_connected");
 
@@ -87,7 +93,6 @@ function onBothCheated(data) {
     showNewAmount();
     console.log("Both cheated");
   }
-
 }
 
 function showNewAmount() {
