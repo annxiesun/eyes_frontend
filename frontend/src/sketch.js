@@ -148,7 +148,7 @@ export const mySketch = (p) => {
 
   // draw the bounding box for first face
   p.mousePressed = () => {
-    p.setTint([255, 0, 0]);
+    // p.setTint([255, 0, 0]);
   };
 
   p.getCorrespondingFrame = (x) => {

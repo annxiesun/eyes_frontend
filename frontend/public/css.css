@@ -3,7 +3,7 @@ html{
   overflow-x: hidden;
 }
 
-/* body { cursor: none; } */
+body { cursor: none; }
 
 .canvas {
   z-index: 0;

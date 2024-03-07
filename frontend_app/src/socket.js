@@ -24,7 +24,7 @@ amountLabel.innerHTML = moneyAmount;
 const cheatBtn = document.querySelector("#cheatBtn");
 const goodBtn = document.querySelector("#goodBtn");
 
-const disabledDuration = 30000;
+const disabledDuration = 1000;
 
 if (window.localStorage.getItem("buttonsDisabled") == "true") {
   cheatBtn.disabled = true;
@@ -32,7 +32,7 @@ if (window.localStorage.getItem("buttonsDisabled") == "true") {
   lockButtons();
 }
 
-const socket = io("https://c98b-99-209-52-138.ngrok-free.app", {
+const socket = io("https://da35-2620-101-f000-700-0-6e15-dee0-a4c5.ngrok-free.app", {
   extraHeaders: {
     "ngrok-skip-browser-warning": true,
   },

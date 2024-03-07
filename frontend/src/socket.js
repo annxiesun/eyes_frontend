@@ -33,7 +33,7 @@ const tryToApplyTint = (t) => {
 const cheatBtn = document.querySelector('#cheatBtn');
 const goodBtn = document.querySelector('#goodBtn');
 
-const socket = io('https://c98b-99-209-52-138.ngrok-free.app', {
+const socket = io('https://da35-2620-101-f000-700-0-6e15-dee0-a4c5.ngrok-free.app', {
   extraHeaders: {
     "ngrok-skip-browser-warning": true
   }
