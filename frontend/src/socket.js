@@ -1,5 +1,34 @@
 import { myP5Sketch } from ".";
 
+/*************************************************/
+
+let allowNextTint = true;
+const nextTintQueue = [];
+
+const setAllowNextToFalse = () => {
+  allowNextTint = false;
+  const timeout = setTimeout(() => {
+    if(nextTintQueue.length == 0) {
+      allowNextTint = true;
+    } else {
+      console.log("popped!")
+      const next = nextTintQueue.pop()
+      myP5Sketch.setTint(next);
+      clearTimeout(timeout);
+      setAllowNextToFalse();
+    }
+  }, 5000)
+}
+
+const tryToApplyTint = (t) => {
+  if(allowNextTint) {
+    myP5Sketch.setTint(t)
+    setAllowNextToFalse()
+  } else {
+    nextTintQueue.push(t)
+  }
+}
+/*************************************************/
 
 const cheatBtn = document.querySelector('#cheatBtn');
 const goodBtn = document.querySelector('#goodBtn');
@@ -27,16 +56,18 @@ socket.on('/root/done_good', onGood);
 socket.on('/root/both_cheated', onBothCheated);
 
 function onCheated() {
+  tryToApplyTint([255,0,0])
   console.log("Someone Cheated")
 }
 
 function onGood() {
+  tryToApplyTint([0,255,255])
   console.log("Both did good")
-  myP5Sketch.setFilter(myP5Sketch.GRAY);
 }
 
 
 function onBothCheated() {
+  tryToApplyTint([255,0,0])
   console.log("Both cheated")
 }
 
