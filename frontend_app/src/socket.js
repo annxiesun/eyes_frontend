@@ -36,7 +36,7 @@ if (window.localStorage.getItem("buttonsDisabled") == "true") {
 }
 
 const socket = io(
-  "https://97db-99-209-52-138.ngrok-free.app",
+  "https://0a37-2620-101-f000-700-00-60-a4c5.ngrok-free.app",
   {
     extraHeaders: {
       "ngrok-skip-browser-warning": true,
